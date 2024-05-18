@@ -1,0 +1,72 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+
+    <div class="col-md-9" style="margin-top:100px ;margin-left: 225px;">                    
+    <div class="block-fluid">
+
+         <table cellpadding="0" cellspacing="0" width="100%" class="table">
+            <thead>
+                <tr>
+                    <a href="Usersinsert">
+                        <input type="button" class="btn btn-info" value="Add" style="float: right;">
+                    </a>
+                    
+                    
+                </tr>
+                <tr>                                    
+                    <th width="25%">Name</th>
+                    <th width="25%">Mobile</th>
+                    <th width="25%">City</th>
+                    <th width="25%">State</th>
+                    <th width="25%">Address</th>  
+                    <th width="25% ">Date-of-Birth</th>
+                    <th width="25%">Gender</th> 
+                    <th width="25%">Religion</th>
+                    <th width="25%">Status</th>   
+                    <th width="25%" colspan="3">Action</th> 
+                                                  
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{user.name}}</td>
+                    <td>{{user.mobile}}</td>
+                    <td>{{user.city}}</td>
+                    <td>{{user.state}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.dob}}</td>    
+                    <td>{% if user.gender == '0' %}
+                            Male
+                        {% endif %}
+                        {% if user.gender == '1' %} 
+                            Female
+                        {% endif %}       
+                    </td> 
+                    <td>{{user.religion}}</td>
+                    <td>{{user.status}}</td>
+                    <td>
+                        <a href="userview">
+                          <input type="button" value="View" class="btn btn-success"> 
+                        </a>
+                    </td>
+                    <td>
+                        <a href="Usersedit/{{user.id}}">
+                          <input type="button" value="Edit" class="btn btn-primary"> 
+                        </a>
+                    </td>
+                    <td>
+                        <a href="Usersdelete/{{user.id}}">
+                            <input type="button" value="Delete" class="btn btn-danger">
+                        </a>
+                    </td>
+                 
+                </tr>    
+                {% endfor %}                    
+            </tbody>
+        </table>
+    </div>
+</div>
+ 

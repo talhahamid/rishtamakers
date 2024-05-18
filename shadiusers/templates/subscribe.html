@@ -1,0 +1,125 @@
+{% load static %}
+{% include 'headeruser.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription Plans</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    
+    body {
+      background-color: #f8f9fa;
+    }
+    .plan {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .plan h2 {
+      color: #343a40;
+    }
+    .plan p {
+      color: #6c757d;
+    }
+    .btn-subscribe {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+    .btn-subscribe:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+    <!-- ================> header section start here <================== -->
+    <header class="header" id="navbar">
+        
+		<div class="header__bottom">
+			<div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <h4>rihtamaker</h4>    
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                        <div class="navbar-nav mainmenu" style="margin-right: 50px;">
+                            <ul>
+                                <li class="menu-item-has-children">
+                                    <a href="/profile/{{request.session.user_id}}/">Profile</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/profileslist/">Partners</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/myplans/{{request.session.user_id}}/">My Plans</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/personaldetails/">Personal Detail</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__more">
+                            <a href="/logout/"><button class="default-btn" type="button">Logout</button></a>
+                        </div>
+                    </div>
+                </nav>
+
+			</div>
+		</div>
+    </header>
+    <!-- ================> header section end here <================== -->
+    
+    <h4 style="margin-left: 500px;margin-top: 50px;">{{user.name}} choose your plan.</h4>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="plan text-center shadow" >
+          <h4>Free Plan</h4>
+          <p>7 days</p>
+          <p>Can View 1 Profile</p>
+          <b>0 Rs</b><br><br>
+          <a href="/freeplan/{{id}}"><button class="btn btn-subscribe" type="button">Subscribe</button></a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="plan text-center shadow" style="background-color:  #e5e4e2 ;">
+          <h4>Silver Plan</h4>
+          <p>1 month</p>
+          <p>Can View <b>25 Profile</b></p>
+          <b>199 Rs</b><br><br>
+          <button class="btn btn-subscribe">Subscribe</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="plan text-center shadow" style="background-color:  lightblue ;">
+          <h4>Platinum Plan</h4>
+          <p>2 months</p>
+          <p>Can View <b>50 Profile</b></p>
+          <b>499 Rs</b><br><br>
+          <button class="btn btn-subscribe">Subscribe</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="plan text-center shadow" style="background-color: rgb(220, 171, 81); color: white;">
+          <h4 style="color: white;">Gold Plan</h4>
+          <p style="color: white;">3 months</p>
+          <p style="color: white;"><b>Unlimited Access</b></p>
+          <b style="color: white;">999 Rs</b><br><br>
+          <button class="btn btn-subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

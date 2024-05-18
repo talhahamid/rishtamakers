@@ -1,0 +1,47 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+
+    <div class="col-md-9" style="margin-top:100px ;margin-left: 225px;">                    
+    <div class="block-fluid">
+
+         <table cellpadding="0" cellspacing="0" width="100%" class="table">
+            <thead>
+                <tr>
+                    <a href="Statusinsert">
+                        <input type="button" class="btn btn-info" value="Add" style="float: right;">
+                    </a>
+                    
+                    
+                </tr>
+                <tr>                                    
+                    <th width="25%">Status</th>
+                      
+                    <th width="25%" colspan="2">Action</th> 
+                                                  
+                </tr>
+            </thead>
+            <tbody>
+                {% for status in status %}
+                 <tr>
+                    <td>{{status.name}}</td>
+                   
+                     
+                    <td>
+                        <a href="Statusedit/{{status.id}}">
+                          <input type="button" value="Edit" class="btn btn-primary"> 
+                        </a>
+                    </td>
+                    <td>
+                        <a href="Statusdelete/{{status.id}}"> 
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </a>    
+                    </td>
+                 </tr>   
+                 {% endfor %}                     
+            </tbody>
+        </table>
+    </div>
+</div>
+ 

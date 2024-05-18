@@ -1,0 +1,188 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="workplace" >
+<br><br>
+    <div class="page-header">
+        <h1>User profile   </h1>
+    </div>                  
+    
+    <div class="row">
+        
+        <div class="col-md-8">
+            
+            <div class="profile ">                            
+                                           
+                <div class="user" style="margin-top: 70px;">
+                 <div class="container">   
+                  <div class="row">
+                    <div class="col-md-4">
+                        <img src="{% static 'img/users/user_profile.jpg' %}" class="img-thumbnail">
+                    </div>               
+                    {% for user in user %}                 
+                    <div class="col-md-6"> 
+                        <h4>Name:{{user.name}}</h4>
+                        <h4>Address:{{user.address}}</h4>                                    
+                        <h4>Date of birth:{{user.dob}}</h4>
+                        <h4>Mobile:{{user.mobile}}</h4>  
+                    </div>         
+                    {% endfor %}
+                  </div>                                                                                        
+                 </div>                
+                </div> 
+                                            
+            </div>
+            
+            <div class="block-fluid without-head">
+               
+                <div class="stream" style="padding: 0px 10px 10px;">
+                    
+                    <div class="item clearfix">
+                         <div class="info">
+                             <div class="text gallery">
+                                <a class="fancybox" rel="group" href="{% static 'img/example_full.jpg' %}" style="margin: 5px;"><img src="{% static 'img/example_mini.jpg' %}" class="img-thumbnail"></a>
+                                <a class="fancybox" rel="group" href="{% static 'img/example_full.jpg' %}" style="margin: 5px;"><img src="{% static 'img/example_mini.jpg' %}" class="img-thumbnail"></a>
+                                <a class="fancybox" rel="group" href="{% static 'img/example_full.jpg' %}" style="margin: 5px;"><img src="{% static 'img/example_mini.jpg' %}" class="img-thumbnail"></a>
+                                <a class="fancybox" rel="group" href="{% static 'img/example_full.jpg' %}" style="margin: 5px;"><img src="{% static 'img/example_mini.jpg' %}" class="img-thumbnail"></a>                                        
+                            </div>
+                        </div>                                
+                    </div>                    
+                </div>
+            </div>          
+        </div>
+
+        
+        
+        <div class="col-md-4">
+            <div class="block-fluid without-head">
+                <div class="toolbar nopadding-toolbar clear clearfix">
+                    <h4>Login</h4>
+                </div> 
+                <div class="users">
+                    <div class="item clearfix">
+                        <div class="image"><a href="#"><img src="{% static 'img/users/aqvatarius_s.jpg' %}" width="32"></a></div>
+                        <div class="info">
+                            <a href="#" class="name">Aqvatarius</a>                                    
+                            <span>online</span>
+                        </div>
+                    </div>
+
+                    <div class="item clearfix">
+                        <div class="image"><a href="#"><img src="{% static 'img/users/olga_s.jpg' %}" width="32"></a></div>
+                        <div class="info">
+                            <a href="#" class="name">Olga</a>                                
+                            <span>online</span>
+                        </div>
+                    </div>                        
+
+                    <div class="item clearfix">
+                        <div class="image"><a href="#"><img src="{% static 'img/users/alexey_s.jpg' %}" width="32"></a></div>
+                        <div class="info">
+                            <a href="#" class="name">Alexey</a>  
+                            <span>online</span>
+                        </div>
+                    </div>                              
+
+                    <div class="item clearfix">
+                        <div class="image"><a href="#"><img src="{% static 'img/users/dmitry_s.jpg' %}" width="32"></a></div>
+                        <div class="info">
+                            <a href="#" class="name">Dmitry</a>                                    
+                            <span>online</span>
+                        </div>
+                    </div>                         
+
+                    <div class="item clearfix">
+                        <div class="image"><a href="#"><img src="{% static 'img/users/helen_s.jpg' %}" width="32"></a></div>
+                        <div class="info">
+                            <a href="#" class="name">Helen</a>                                                                        
+                        </div>
+                    </div>                                  
+
+                    <div class="item clearfix">
+                        <div class="image"><a href="#"><img src="{% static 'img/users/alexander_s.jpg' %}" width="32"></a></div>
+                        <div class="info">
+                            <a href="#" class="name">Alexander</a>                                                                        
+                        </div>
+                    </div>                            
+                </div>
+            </div>                        
+            
+        </div>                    
+    </div>                
+    
+    <div class="profile" style="background: url('../img/backgrounds/body.jpg')">                            
+                                           
+        <div class="user">
+         <div class="container">   
+          <div class="row">
+            <div class="col-md-4">
+                <div class="block-fluid without-head">
+                    <div class="toolbar nopadding-toolbar clear clearfix">
+                        <h4>Personal Details</h4>
+                    </div> 
+                    <div class="users">
+                        <div class="item clearfix">
+                            <b>Education:</b>
+                        </div>
+    
+                        <div class="item clearfix">
+                            <b>Height:</b>
+                        </div>                        
+    
+                        <div class="item clearfix">
+                            <b>Weight:</b>
+                        </div>        
+                        
+                        <div class="item clearfix">
+                            <b>Complexion:</b>
+                        </div>
+    
+                        <div class="item clearfix">
+                            <b>Income:</b>
+                        </div>
+    
+                        <div class="item clearfix">
+                            <b>Mother Tongue</b>
+                        </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="block-fluid without-head">
+                        <div class="toolbar nopadding-toolbar clear clearfix">
+                            <h4>Family Details</h4>
+                        </div> 
+                        <div class="users">
+                            <div class="item clearfix">
+                                <b>Guardian:</b>
+                            </div>
+        
+                            <div class="item clearfix">
+                                <b>Mobile:</b>
+                            </div>                        
+        
+                            <div class="item clearfix">
+                                <b>Occupation:</b>
+                            </div>        
+                            
+                            <div class="item clearfix">
+                                <b>Brothers:</b>
+                            </div>
+        
+                            <div class="item clearfix">
+                                <b>Sisters:</b>
+                            </div>
+        
+                            <div class="item clearfix">
+                                <b>Income:</b>
+                            </div>
+                            </div>                            
+                        </div>
+                    </div>                           
+          </div>                                                                                        
+         </div>                
+        </div> 
+
+    </div>   
+</div>
+

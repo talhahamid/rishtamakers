@@ -1,0 +1,30 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+    <div class="col-md-6" style="margin-left:300px ; margin-top:100px">
+        
+    <div class="block-fluid">                        
+
+        {% for rcedits in rcedits %}
+    <form action="Religion_categoryupdate/{{rcedits.id}}" method="post">             
+        {% csrf_token %}
+        <div class="row-form clearfix">
+            <div class="col-md-3">Religion ID</div>
+            <div class="col-md-9"><input type="text" name="religion_name" value="{{rcedits.religion_name}}"></div>    
+        </div>
+        
+        <div class="row-form clearfix">
+            <div class="col-md-3">Sub Category</div>
+            <div class="col-md-9"><input type="text" name="sub_category" value="{{rcedits.sub_category}}"></div>
+        </div>
+  
+        <div class="row-form clearfix"> 
+             <div class="col-md-12">
+                <a href="../Religion_categoryindex"> <input type="submit" class="btn btn-primary" value="Back"></a>    
+                <input type="submit" class="btn btn-primary" value="Edit" style="float:right"></div>
+        </div> 
+        {% endfor %}
+    </form>
+   </div>
+  </div>      

@@ -1,0 +1,135 @@
+{% load static %}
+{% include 'headeruser.html' %}
+
+
+<!-- ================> header section start here <================== -->
+    <header class="header" id="navbar">
+        
+		<div class="header__bottom">
+			<div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <h4>rihtamaker</h4>    
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                        <div class="navbar-nav mainmenu" style="margin-right: 50px;">
+                            <ul>
+                                <li class="menu-item-has-children">
+                                    <a href="/profile/{{request.session.user_id}}/">Profile</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/profileslist/">Partners</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/myplans/{{request.session.user_id}}/">My Plans</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/personaldetails/">Personal Detail</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__more">
+                            <a href="/logout/"><button class="default-btn" type="button">Logout</button></a>
+                        </div>
+                    </div>
+                </nav>
+
+			</div>
+		</div>
+    </header>
+    <!-- ================> header section end here <================== -->
+    
+
+
+ <div class="container" style="width: 700px;;margin-left: 300px;background-color:white;">
+   <div class="row">
+    <!-- <div class="col-lg-6"> -->
+    <div class="modal-body">
+        <form action="/updatepersonaldetails/{{personal.id}}" method="post">
+            {% csrf_token %}
+           <div class="banner__list">
+            <div class="row align-items-center row-cols-1">
+             <div class="col">
+                <label>Education</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="education"  value="{{personal.education}}">
+                </div>
+            </div>
+            
+            <div class="col">
+                <label>Occupation</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="occupation" value="{{personal.occupation}}">
+                </div>
+            </div>
+            
+             
+
+            <div class="col">
+                <label>Status</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="status" value="{{personal.status}}">
+                </div>
+            </div>
+
+            <div class="col">
+                <label>Mother Tongue</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="mother_tongue" value="{{personal.mother_tongue}}">
+                </div>
+            </div>
+
+            <div class="col">
+                <label>Religion Catgory</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="religion_category" value="{{personal.religion_category}}">
+                </div>
+            </div>
+
+            <div class="col">
+                <label>Cast Category</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="cast_category" value="{{personal.cast_category}}">
+                </div>
+            </div>
+
+            <div class="col">
+                <label>Income</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="income" value="{{personal.income}}">
+                </div>
+            </div>
+
+            <div class="col">
+                <label>Height</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="height" value="{{personal.height}}">
+                </div>
+            </div>
+
+            <div class="col">
+                <label>Weight</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="weight" value="{{personal.weight}}">
+                </div>
+            </div>
+
+
+            <div class="col">
+                <label>Color</label>
+                <div class="banner__inputlist">
+                    <input type="text" name="color" value="{{personal.color}}">
+                </div>
+            </div>
+
+            <div class="col">
+                <button type="submit" id="submitButton" class="default-btn d-block w-100"><span>Edit Personal Details </span></button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div> 
+</div>
+
+{% include 'footeruser.html' %}

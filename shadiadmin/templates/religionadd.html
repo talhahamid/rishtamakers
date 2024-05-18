@@ -1,0 +1,23 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+    <div class="col-md-6" style="margin-left:300px ; margin-top:100px">
+        
+    <div class="block-fluid">                        
+
+    <form method="post" action="Religioninsert">             
+        {% csrf_token %}
+        <div class="row-form clearfix">
+            <div class="col-md-3">Name</div>
+            <div class="col-md-9"><input type="text" name="name"></div>
+        </div> 
+         
+        <div class="row-form clearfix"> 
+            <div class="col-md-12">
+                <a href="../Religionindex"> <input type="submit" class="btn btn-primary" value="Back"></a>    
+                <input type="submit"  class="btn btn-primary" value="Add" style="float:right"></div>
+        </div>                               
+    </form>
+    </div>
+ </div>           

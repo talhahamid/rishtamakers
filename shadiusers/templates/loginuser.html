@@ -1,0 +1,50 @@
+{% load static %}
+{% include 'headeruser.html' %}
+
+
+
+ <div class="container" style="width: 500px;;margin-left: 400px;background-color:white;margin-top: 80px;">
+   <div class="row">
+    <!-- <div class="col-lg-6"> -->
+    <div class="modal-body">
+        <form action="/" method="post">
+            {% csrf_token %}
+            <h4 style="margin-left: 170px;">Login</h4><hr>
+            <div class="col">
+                <label>Mobile</label>
+                <div class="banner__inputlist">
+                    <input type="number" name="mobile">
+                </div>
+            </div>
+            
+            <div class="col">
+                <label>Password</label>
+                <div class="banner__inputlist">
+                    <input type="password" name="password">
+                </div>
+            </div>
+
+            <br>
+            <div class="col">
+                 <a href="/forget/" style="margin-left: 260px;color: red;">Forget Password</a>
+            </div>
+            <br>
+
+            <div class="col">
+                <button type="submit" class="default-btn d-block w-100"><span>Login</span></button>
+            </div>
+            <br>
+            
+            <div class="col">
+                Dont have account? <a href="/register/" style="color: blue ;">Register</a>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div> 
+
+
+{% include 'footeruser.html' %}	

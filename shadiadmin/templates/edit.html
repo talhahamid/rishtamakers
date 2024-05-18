@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>EDIT</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    {% for edits in edits %}
+     <form method="post" action="update/{{edits.id}}"> 
+        {% csrf_token %}
+        <input type="hidden" name="id" vlaue="{{edits.id}}">
+        Name:<input type="text" name="name" value="{{edits.name}}">
+        <input type="submit" value="EDIT">
+    </form>
+    {% endfor %}
+
+</body>
+</html>

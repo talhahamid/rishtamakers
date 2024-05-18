@@ -1,0 +1,46 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+
+    <div class="col-md-9" style="margin-top:100px ;margin-left: 225px;">                    
+    <div class="block-fluid">
+
+         <table cellpadding="0" cellspacing="0" width="100%" class="table">
+            <thead>
+                <tr>
+                    <a href="Occupationinsert">
+                        <input type="button" class="btn btn-info" value="Add" style="float: right;">
+                    </a>
+                </tr>
+
+                <tr>                                    
+                    <th width="25%">Occupation Name</th>
+                    <th width="25%">Sub category</th>
+
+                    <th width="25%" colspan="2">Action</th> 
+                                                  
+                </tr>
+            </thead>
+            <tbody>
+                {% for ocu in ocu %}
+                 <tr>
+                    <td>{{ocu.occupation_name}}</td>
+                    <td>{{ocu.sub_category}}</td>                     
+                    <td>
+                        <a href="Occupationedit/{{ocu.id}}">
+                          <input type="button" value="Edit" class="btn btn-primary"> 
+                        </a>
+                    </td>
+                    <td>
+                        <a href="Occupationdelete/{{ocu.id}}">
+                            <input type="button" value="Delete" class="btn btn-danger">
+                        </a>    
+                    </td>
+                 </tr>                        
+                 {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+ 

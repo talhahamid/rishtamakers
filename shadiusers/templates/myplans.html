@@ -1,0 +1,73 @@
+{% load static %}
+{% include 'headeruser.html' %}
+
+
+<!-- ================> header section start here <================== -->
+    <header class="header" id="navbar">
+        
+		<div class="header__bottom">
+			<div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <h4>rihtamaker</h4>    
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                        <div class="navbar-nav mainmenu" style="margin-right: 50px;">
+                            <ul>
+                                <li class="menu-item-has-children">
+                                    <a href="/profile/{{request.session.user_id}}/">Profile</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/profileslist/">Partners</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/myplans/{{request.session.user_id}}/">My Plans</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/personaldetails/">Personal Detail</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__more">
+                            <a href="/logout/"><button class="default-btn" type="button">Logout</button></a>
+                        </div>
+                    </div>
+                </nav>
+
+			</div>
+		</div>
+    </header>
+    <!-- ================> header section end here <================== -->
+    
+
+<br><br>
+ <div class="container" style="width: 700px;margin-left: 270px;background-color:white;">
+   <div class="row">
+    <!-- <div class="col-lg-6"> -->
+        <div class="modal-body">
+            <h4 style="margin-left: 125px;"> {{user.name}}'s Subscription Plans Detail</h4><br>
+            {% for subscribe in subscriptions %}
+            <table style="width: 650px;" border="2px">
+                <tr style="background-color: lightgray;">
+                <th style="padding: 15px;">Plan</th>
+                <th style="padding: 15px;">Duration</th>
+                <th style="padding: 15px;">Price</th>
+                <th style="padding: 15px;">Plan taken on</th>
+                <th style="padding: 15px;">Expiry Date</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">{{subscribe.plan}} Plan</td>
+                    <td style="padding: 10px;">{{subscribe.duration}} days</td>
+                    <td style="padding: 10px;">{{subscribe.price}} Rs</td>
+                    <td style="padding: 10px;"> {{subscribe.createdat}}</td>
+                    {% for expiry_date in expiry_dates %}
+                        <td style="padding: 5px;">{{expiry_date}} </td>
+                    {% endfor %}    
+                </tr>
+            </table>
+            {% empty %}
+                <h4>You have no plans currently</h4>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% include 'footeruser.html' %}

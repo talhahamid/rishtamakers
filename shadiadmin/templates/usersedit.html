@@ -1,0 +1,74 @@
+
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+    <div class="col-md-6" style="margin-left:300px ; margin-top:100px">
+        
+    <div class="block-fluid">  
+        {% for edits in edits %}                      
+    <form action="Usersupdate/{{edits.id}}" method="post">
+        {% csrf_token %}    
+        <div class="row-form clearfix">
+            <div class="col-md-3">Name</div>
+            <div class="col-md-9"><input type="text" name="name" value="{{edits.name}}" ></div>
+        </div>                         
+
+        <div class="row-form clearfix">
+            <div class="col-md-3">Mobile</div>
+            <div class="col-md-9"><input type="text" name="mobile" value="{{edits.mobile}}" ></div>
+        </div>                                   
+
+        <div class="row-form clearfix">
+            <div class="col-md-3">City</div>
+            <div class="col-md-9"><input type="text" name="city" value="{{edits.city}}"></div>
+        </div>                                                           
+
+        <div class="row-form clearfix">
+            <div class="col-md-3">State</div>
+            <div class="col-md-9"><input type="text" name="state" value="{{edits.state}}"></div>
+        </div>
+
+        <div class="row-form clearfix">
+            <div class="col-md-3">Address</div>
+            <div class="col-md-9"><textarea type="text" name="address" value="{{edits.address}}"></textarea></div>
+        </div>                         
+
+        <div class="row-form clearfix">
+            <div class="col-md-3">Date of Birth</div>
+            <div class="col-md-9"><input type="text" name="dob" value="{{edits.dob}}"></div>
+        </div>
+
+         <div class="row-form clearfix">
+            <div class="col-md-3">Gender</div>
+            <div class="col-md-9">
+                {% if edits.gender == '0' %}
+                    <input type="radio" name="gender" checked >Male
+                    <input type="radio" name="gender" >Female
+                {% endif %} 
+                {% if edits.gender == '1' %}
+                    <input type="radio" name="gender" >Male                
+                    <input type="radio" name="gender" checked >Female
+                {% endif %} 
+           </div>
+        </div> 
+        
+        <div class="row-form clearfix">
+            <div class="col-md-3">Religion</div>
+            <div class="col-md-9"><input type="text" name="religion" value="{{edits.religion}}"></div>
+        </div> 
+
+        <div class="row-form clearfix">
+            <div class="col-md-3">Status</div>
+            <div class="col-md-9"><input type="text" name="status" value="{{edits.status}}"></div>
+        </div> 
+            
+        <div class="footer tal">
+            <a href="../Usersindex"> <input type="submit" class="btn btn-primary" value="Back" style="float: left;"></a>    
+        
+            <input type="submit" class="btn btn-primary" value="Edit"> 
+        </div>   
+        </form>
+        {% endfor %}              
+    </div>
+</div>

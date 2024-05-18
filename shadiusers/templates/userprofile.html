@@ -1,0 +1,228 @@
+{% load static %}
+{% include 'headeruser.html' %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Custom CSS for profile page */
+        .profile-header {
+            background-color: #4267B2; /* Facebook blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-main {
+            margin-top: 20px;
+        }
+        .profile-details {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- ================> header section start here <================== -->
+    <header class="header" id="navbar">
+        
+		<div class="header__bottom">
+			<div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <h4>rihtamaker</h4>    
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                        <div class="navbar-nav mainmenu" style="margin-right: 50px;">
+                            <ul>
+                                <li class="menu-item-has-children">
+                                    <a href="/profile/{{request.session.user_id}}/">Profile</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/profileslist/">Partners</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/myplans/{{request.session.user_id}}/">My Plans</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/personaldetails/">Personal Detail</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__more">
+                            <a href="/logout/"><button class="default-btn" type="button">Logout</button></a>
+                        </div>
+                    </div>
+                </nav>
+
+			</div>
+		</div>
+    </header>
+    <!-- ================> header section end here <================== -->
+
+<div class="container mt-5">
+    <!-- Profile header -->
+    
+
+    <!-- Profile main section -->
+    <div class="row profile-main">
+        <!-- Left column for profile picture and basic details -->
+        <div class="col-md-4">
+
+            <div class="text-center">
+                {% if not profilepic %}
+                    <img id="profile-pic" src="https://via.placeholder.com/300" class=" img-thumbnail" style="width: 400px;height: 300px;" alt="User Profile Picture">
+                {% else %}
+                  <a href="/pics/"><img src="{{ profilepic.profilepic1.url }}" class=" img-thumbnail" alt="Profile Picture"></a>
+                {% endif %} 
+            </div>
+            <div class="profile-details shadow mt-3">
+                <h5 class="mb-3">Basic Details</h5>
+                <p><strong>Name:</strong> {{user.name}}</p>
+                {% if show_data %}
+                <p><strong>Mobile:</strong> {{user.mobile}}</p>
+                {% else %}
+                <p><strong>Mobile:</strong>********** </p>
+                {% endif %}
+                {% if show_data %}
+                <p><strong>Address:</strong> {{user.address}}</p>
+                {% else %}
+                <p><strong>Address:</strong>**********</p>
+                {% endif %}
+                <p><strong>Gender:</strong> {{user.gender}}</p>
+                <p><strong>Looking For:</strong>{{user.looking_for}}</p>
+                
+                <!-- Add more basic details -->
+            </div>
+            
+        </div>
+
+        <!-- Right column for detailed profile information -->
+        <div class="col-md-8">
+            <div class="profile-details shadow mt-3">
+            <h5 class="mb-3">Additional Images</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        {% if not profilepic %}
+                            <img id="profile-pic" src="https://via.placeholder.com/150" style="width: 400px;height: 200px;" alt="User Profile Picture">
+                        {% else %}
+                            <a href="/pics/"><img src="{{ profilepic.profilepic2.url }}" class=" img-thumbnail" alt="Profile Picture"></a>
+                        {% endif %} 
+                    </div>
+                    <div class="col-md-4">
+                        {% if not profilepic %}
+                            <img id="profile-pic" src="https://via.placeholder.com/150" style="width: 400px;height: 200px;" alt="User Profile Picture">
+                        {% else %}
+                            <a href="/pics/"><img src="{{ profilepic.profilepic3.url }}" class=" img-thumbnail" alt="Profile Picture"></a>
+                        {% endif %} 
+                    </div>
+                    <div class="col-md-4">
+                        {% if not profilepic %}
+                            <img id="profile-pic" src="https://via.placeholder.com/150" style="width: 400px;height: 200px;" alt="User Profile Picture">
+                        {% else %}
+                            <a href="/pics/"><img src="{{ profilepic.profilepic4.url }}" class=" img-thumbnail" alt="Profile Picture"></a>
+                        {% endif %} 
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="profile-details shadow">
+                <h5 class="mb-3">Detailed Information</h5>
+                <table style="width: 700px;">
+                    <tr>
+                       <td>
+                            {% if show_data %}
+                            <p><strong>City:</strong> {{user.city}}</p>
+                            {% else %}
+                            <p><strong>City:</strong>**********</p>
+                            {% endif %}    
+                        </td>
+                        <td>
+                            {% if show_data %}
+                            <p><strong>State:</strong> {{user.state}}</p>
+                            {% else %}
+                            <p><strong>State:</strong>**********</p>
+                            {% endif %} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p><strong>Religion:</strong> {{user.religion}}</p></td>
+                        <td><p><strong>Education:</strong> {{personaldetail.education}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p><strong>Occupation:</strong> {{personaldetail.occupation}}</p></td>
+                        <td><p><strong>Status:</strong> {{personaldetail.status}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p><strong>Mother Tongue:</strong> {{personaldetail.mother_tongue}}</p></td>
+                        <td> <p><strong>Religion Category:</strong> {{personaldetail.religion_category}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p><strong>Cast Category:</strong> {{personaldetail.cast_category}}</p></td>
+                        <td>
+                            {% if show_data %}
+                            <p><strong>Income:</strong> {{personaldetail.income}}</p>
+                            {% else %}
+                            <p><strong>Income:</strong>**********</p>
+                            {% endif %} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p><strong>Height:</strong> {{personaldetail.height}}</p></td>
+                        <td><p><strong>Weight:</strong> {{personaldetail.weight}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p><strong>Color:</strong> {{personaldetail.color}}</p></td>
+                        <td><p><strong>Marital Status:</strong> {{user.marital_status}}</p></td>
+                    </tr>
+                </table>  
+
+                {% if error_message %}<br>
+                    <h6 style="color: rgb(223, 67, 119);">{{error_message}}</h6>
+                {% endif %}
+                
+                {% if not subscription %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="default-btn" name="subscribe">Subscribe</button>
+                    </form>
+                {% else %}
+                    {% if not show_data %}
+                        {% if not error_message %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="default-btn" name="show_data">Show</button>
+                        </form>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+{% include 'footeruser.html' %}	
+	

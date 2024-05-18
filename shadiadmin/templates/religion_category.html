@@ -1,0 +1,47 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+
+<div class="col-md-9" style="margin-top:100px ;margin-left: 225px;">                    
+    <div class="block-fluid">
+
+         <table cellpadding="0" cellspacing="0" width="100%" class="table">
+            <thead>
+                <tr>
+                    <a href="Religion_categoryinsert">
+                        <input type="button" class="btn btn-info" value="Add" style="float: right;">
+                    </a>
+                    
+                    
+                </tr>
+                <tr>                                    
+                    <th width="25%">Religion Name</th>
+                    <th width="25%">Sub Category Name</th>
+                    <th width="25%" colspan="2">Action</th> 
+                                                  
+                </tr>
+            </thead>
+            <tbody>
+                {% for rc in rc %}
+                 <tr>
+                    <td>{{rc.religion_name}}</td>
+                    <td>{{rc.sub_category}}</td>
+                    
+                    
+                    <td>
+                        <a href="Religion_categoryedit/{{rc.id}}">
+                          <input type="button" value="Edit" class="btn btn-primary"> 
+                        </a>
+                    </td>
+                    <td>
+                        <a href="Religion_categorydelete/{{rc.id}}"> 
+                            <input type="button" value="Delete" class="btn btn-danger">
+                        </a>    
+                    </td> 
+                 </tr>    
+                 {% endfor %}                    
+            </tbody>
+        </table>
+    </div>
+</div>

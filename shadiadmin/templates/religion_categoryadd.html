@@ -1,0 +1,28 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+    <div class="col-md-6" style="margin-left:300px ; margin-top:100px">
+        
+    <div class="block-fluid">                        
+
+    <form method="post" action="Religion_categoryinsert">             
+        {% csrf_token %}
+        <div class="row-form clearfix">
+            <div class="col-md-3">Religion Name</div>
+            <div class="col-md-9"><input type="text" name="religion_name"></div>    
+        </div>
+        
+        <div class="row-form clearfix">
+            <div class="col-md-3">Sub Category</div>
+            <div class="col-md-9"><input type="text" name="sub_category"></div>
+        </div>
+  
+        <div class="row-form clearfix"> 
+             <div class="col-md-12">
+                <a href="../Religion_categoryindex"> <input type="submit" class="btn btn-primary" value="Back"></a>    
+                <input type="submit"  class="btn btn-primary" value="Add" style="float:right"></div>
+        </div>
+    </form>
+    </div>
+</div>         

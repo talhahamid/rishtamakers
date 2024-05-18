@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>TEST</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    
+    <table>
+        <tr><td><a href="insert"><input type="submit" value="ADD"></a></td></tr>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>Action</th>
+        </tr>
+        {% for demo in demo %}
+        <tr>
+            <td>{{demo.id}}</td>
+            <td>{{demo.name}}</td>
+            <td>
+                <a href="edit/{{demo.id}}"><input type="button" value="Edit"></a>
+                <a href="delete/{{demo.id}}"><input type="button" value="Delete"></a>                
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

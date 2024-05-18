@@ -1,0 +1,24 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+<div class="col-md-6" style="margin-left:300px ; margin-top:100px">
+    <div class="block-fluid">                        
+    
+    {% for redits in redits %}
+    <form method="post" action="Religionupdate/{{redits.id}}">             
+        {% csrf_token %}
+        <input type="hidden" name="id" vlaue="{{redits.id}}"> 
+        <div class="row-form clearfix">
+            <div class="col-md-3">Name</div>
+            <div class="col-md-9"><input type="text" name="name" value="{{redits.name}}"></div>
+        </div> 
+        <div class="row-form clearfix"> 
+            <div class="col-md-12">
+                <a href="../Religionindex"> <input type="submit" class="btn btn-primary" value="Back"></a>        
+                <input type="submit"  class="btn btn-primary" value="Edit" style="float:right"></div>
+        </div>                
+        {% endfor %}
+    </form>
+   </div>
+ </div>       

@@ -1,0 +1,117 @@
+{% load static %}
+{% include 'headeruser.html' %}
+
+
+
+ <div class="container" style="width: 700px;;margin-left: 300px;background-color:white;margin-top: 50px;">
+   <div class="row">
+    <!-- <div class="col-lg-6"> -->
+    <div class="modal-body">
+        <form action="/register/" method="post">
+            {% csrf_token %}
+            <h4 style="margin-left: 270px;">Register</h4><hr>
+            
+                <div class="col">
+                    <label for="name">Name</label>
+                    <div class="banner__inputlist">
+                        <input type="text" id="name" name="name" >
+                    </div>
+                </div>
+
+            <div class="col">
+                <label>Address</label>
+                <div class="banner__inputlist">
+                    <textarea type="text" name="address"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                  <label>City</label>
+                  <div class="banner__inputlist">
+                      <input type="text" name="city">
+                  </div>
+              </div>
+
+              <div class="col-md-6">
+                  <label>State</label>
+                  <div class="banner__inputlist">
+                      <input type="text" name="state">
+                  </div>
+              </div>
+            </div>
+
+            
+            
+            <div class="row">
+              <div class="col-md-6">
+                  <label>Mobile</label>
+                  <div class="banner__inputlist">
+                      <input type="number" name="mobile">
+                  </div>
+              </div>
+              
+              <div class="col-md-6">
+                  <label>Password</label>
+                  <div class="banner__inputlist">
+                      <input type="password" name="password">
+                  </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                  <label>Religion</label>
+                  <div class="banner__inputlist">
+                      <input type="text" name="religion">
+                  </div>
+              </div>
+
+              <div class="col-md-6">
+                <label>Gender</label>
+                <div class="banner__inputlist">
+                    <input type="radio" id="male" name="gender" value="male"> <!-- Use the same name attribute for both radio buttons -->
+                    <label for="male">Male</label> <!-- Use a label for better accessibility and usability -->
+                    <input type="radio" id="female" name="gender" value="female" style="margin-left: 30px;"> <!-- Use the same name attribute for both radio buttons -->
+                    <label for="female">Female</label> <!-- Use a label for better accessibility and usability -->
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                  <label>Marital Status</label>
+                  <div class="banner__inputlist">
+                      <input type="radio" id="single" name="marital_status" value="single"> Single
+                      <input type="radio" id="married" name="marital_status" value="married" style="margin-left: 10px;"> Married
+                      <input type="radio" id="divorced" name="marital_status" value="divorced" style="margin-left: 10px;"> Divorced
+                  </div>
+              </div>
+
+              <div class="col-md-6">
+                  <label>Looking For</label>
+                  <div class="banner__inputlist">
+                      <input type="radio" id="male" name="looking_for" value="male"> Male
+                      <input type="radio" id="female" name="looking_for" value="female" style="margin-left: 30px;"> Female
+                  </div>
+              </div>
+            </div>
+
+            <div class="col">
+                <button type="submit" class="default-btn d-block w-100"><span>Register</span></button>
+            </div>
+            <br>
+            
+            <div class="col">
+                Alread register? <a href="/" style="color: blue ;">Login</a>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div> 
+
+
+{% include 'footeruser.html' %}	

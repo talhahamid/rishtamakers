@@ -1,0 +1,28 @@
+{% load static %}
+{% include 'header.html' %}
+  
+{% include 'sidepanel.html' %} 
+
+<div class="col-md-6" style="margin-left:300px ; margin-top:100px"> 
+    <div class="block-fluid">                        
+        {% for ocedits in ocedits %}
+    <form method="post" action="Occupationupdate/{{ocedits.id}}">             
+          {% csrf_token %}  
+        <div class="row-form clearfix">
+            <div class="col-md-3">Occupation Name</div>
+            <div class="col-md-9"><input type="text" name="name" value="{{ocedits.name}}"></div>
+        </div>
+        <div class="row-form clearfix">
+            <div class="col-md-3">Sub category</div>
+            <!-- <div class="col-md-9"><input type="text" name="sub_category" value="{{ocedits.sub_category}}"></div> -->
+        </div> 
+        
+        <div class="row-form clearfix"> 
+            <div class="col-md-12">
+                <a href="../Occupationindex"> <input type="submit" class="btn btn-primary" value="Back"></a>    
+                <input type="submit"  class="btn btn-primary" value="Edit" style="float:right"></div>
+        </div>
+        {% endfor %}            
+    </form>
+    </div>
+</div>

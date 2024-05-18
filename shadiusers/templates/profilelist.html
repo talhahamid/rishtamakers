@@ -1,0 +1,123 @@
+{% load static %}
+{% include 'headeruser.html' %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Custom CSS for profile page */
+        .profile-header {
+            background-color: #4267B2; /* Facebook blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-main {
+            margin-top: 20px;
+        }
+        .profile-details {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- ================> header section start here <================== -->
+    <header class="header" id="navbar">
+        
+		<div class="header__bottom">
+			<div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <h4>rihtamaker</h4>    
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                        <div class="navbar-nav mainmenu" style="margin-right: 50px;">
+                            <ul>
+                                <li class="menu-item-has-children">
+                                    <a href="/profile/{{request.session.user_id}}/">Profile</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/profileslist/">Partners</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/myplans/{{request.session.user_id}}/">My Plans</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="/personaldetails/">Personal Detail</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__more">
+                            <a href="/logout/"><button class="default-btn" type="button">Logout</button></a>
+                        </div>
+                    </div>
+                </nav>
+
+			</div>
+		</div>
+    </header>
+    <!-- ================> header section end here <================== -->
+
+<div class="container mt-5">
+    <!-- Profile header -->
+    <div class="row">
+        <div class="col-md-12">
+            <form method="get" class="form-inline" action="/profiles_list/">
+                <input type="text" name="education" value="{{ filters.education }}" placeholder="Education" class="form-control mr-2 mb-2">
+                <input type="text" name="occupation" value="{{ filters.occupation }}" placeholder="Occupation" class="form-control mr-2 mb-2">
+                <input type="text" name="status" value="{{ filters.status }}" placeholder="Status" class="form-control mr-2 mb-2">
+                <input type="text" name="mother_tongue" value="{{ filters.mother_tongue }}" placeholder="Mother Tongue" class="form-control mr-2 mb-2">
+                <input type="text" name="religion_category" value="{{ filters.religion_category }}" placeholder="Religion Category" class="form-control mr-2 mb-2">
+                <input type="text" name="cast_category" value="{{ filters.cast_category }}" placeholder="Cast Category" class="form-control mr-2 mb-2">
+                <input type="number" name="income" value="{{ filters.income }}" placeholder="Income" class="form-control mr-2 mb-2">
+                <input type="text" name="height" value="{{ filters.height }}" placeholder="Height" class="form-control mr-2 mb-2">
+                <input type="number" name="weight" value="{{ filters.weight }}" placeholder="Weight" class="form-control mr-2 mb-2">
+                <input type="text" name="color" value="{{ filters.color }}" placeholder="Color" class="form-control mr-2 mb-2">
+                <button type="submit" class="btn btn-primary mb-2">Filter</button>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <!-- Profile main section -->
+    <div class="row profile-main">
+        {% for personal in profiles %}
+        <div class="col-md-3">
+            <div class="card shadow" style="width: 200px; height: 120px;">
+                <h4 style="padding: 25px;">{{ personal.user.name }}</h4>
+                <a href="/userprofile/{{ personal.user.id }}/"><button class="default-btn btn-sm" style="margin-top: -700px; margin-left: 120px;" type="button">Profile</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+     
+
+</div>     
+<br><br><br>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+{% include 'footeruser.html' %}	
+	
